@@ -172,6 +172,10 @@
       },
       '#withQuery':: d.fn(help='"Query defines the URL for the error page (hosted by service). The {status} variable can be used in order to insert the status code in the URL."', args=[d.arg(name='query', type=d.T.string)]),
       withQuery(query): { spec+: { errors+: { query: query } } },
+      '#withStatus':: d.fn(help='"Status defines which status or range of statuses should result in an error page. It can be either a status code as a number (500), as multiple comma-separated numbers (500,502), as ranges by separating two codes with a dash (500-599), or a combination of the two (404,418,500-599)."', args=[d.arg(name='status', type=d.T.array)]),
+      withStatus(status): { spec+: { errors+: { status: if std.isArray(v=status) then status else [status] } } },
+      '#withStatusMixin':: d.fn(help='"Status defines which status or range of statuses should result in an error page. It can be either a status code as a number (500), as multiple comma-separated numbers (500,502), as ranges by separating two codes with a dash (500-599), or a combination of the two (404,418,500-599)."\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='status', type=d.T.array)]),
+      withStatusMixin(status): { spec+: { errors+: { status+: if std.isArray(v=status) then status else [status] } } },
     },
     '#forwardAuth':: d.obj(help='"ForwardAuth holds the forward auth middleware configuration. This middleware delegates the request authentication to a Service. More info: https://doc.traefik.io/traefik/v2.9/middlewares/http/forwardauth/"'),
     forwardAuth: {

@@ -69,6 +69,8 @@ permalink: /2.9.8/traefik/v1alpha1/middleware/
     * [`fn withSecret(secret)`](#fn-specdigestauthwithsecret)
   * [`obj spec.errors`](#obj-specerrors)
     * [`fn withQuery(query)`](#fn-specerrorswithquery)
+    * [`fn withStatus(status)`](#fn-specerrorswithstatus)
+    * [`fn withStatusMixin(status)`](#fn-specerrorswithstatusmixin)
     * [`obj spec.errors.service`](#obj-specerrorsservice)
       * [`fn withKind(kind)`](#fn-specerrorsservicewithkind)
       * [`fn withName(name)`](#fn-specerrorsservicewithname)
@@ -673,6 +675,24 @@ withQuery(query)
 ```
 
 "Query defines the URL for the error page (hosted by service). The {status} variable can be used in order to insert the status code in the URL."
+
+### fn spec.errors.withStatus
+
+```ts
+withStatus(status)
+```
+
+"Status defines which status or range of statuses should result in an error page. It can be either a status code as a number (500), as multiple comma-separated numbers (500,502), as ranges by separating two codes with a dash (500-599), or a combination of the two (404,418,500-599)."
+
+### fn spec.errors.withStatusMixin
+
+```ts
+withStatusMixin(status)
+```
+
+"Status defines which status or range of statuses should result in an error page. It can be either a status code as a number (500), as multiple comma-separated numbers (500,502), as ranges by separating two codes with a dash (500-599), or a combination of the two (404,418,500-599)."
+
+**Note:** This function appends passed data to existing values
 
 ## obj spec.errors.service
 
